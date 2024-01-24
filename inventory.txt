@@ -1,0 +1,9 @@
+[oracle]
+ecl-orcldb-s01
+ecl-orcldb-s02
+[mysql]
+ecl-mysqdb-s01
+ecl-mysqdb-s02
+[mssql]
+ecw-sql1db-s05
+ecw-sql1db-s06
