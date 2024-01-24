@@ -6,11 +6,12 @@ pipeline {
    ANSIBLE_SCP_IF_SSH = 'True'
   }
   stages {
-    sshagent(['ansible-ssh'])
+    sshagent(['ansible-ssh']) {
     stage('Print Oracle Status') {
       steps {
                 sh 'ansible-playbook -i inventory Oracle-Prepatch.yml'
       }
     }
   }
+}
 }
