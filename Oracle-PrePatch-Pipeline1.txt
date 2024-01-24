@@ -1,0 +1,16 @@
+pipeline {
+  agent any 
+  environment {
+   ANSIBLE_PRIVATE_KEY=credentials('ansible-ssh') 
+   ANSIBLE_HOST_KEY_CHECKING = 'False'
+   ANSIBLE_SCP_IF_SSH = 'True'
+  }
+  stages {
+    sshagent(['ansible-ssh'])
+    stage('Print Oracle Status') {
+      steps {
+                sh 'ansible-playbook -i inventory Oracle-Prepatch.yml'
+      }
+    }
+  }
+}
